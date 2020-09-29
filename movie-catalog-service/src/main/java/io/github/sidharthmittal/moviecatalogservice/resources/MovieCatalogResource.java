@@ -36,7 +36,7 @@ public class MovieCatalogResource {
             //using rest template
             Movie movie = restTemplate.getForObject("http://movie-info-service/movie/" + rating.getMovieId(), Movie.class);
             //create the final return object
-            return new CatalogItem(movie.getName(),"Lorem Ipsum", rating.getRating());
+            return new CatalogItem(movie.getName(), movie.getDescription(), rating.getRating());
         }).collect(Collectors.toList());
 
     }
